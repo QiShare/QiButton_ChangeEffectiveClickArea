@@ -32,10 +32,18 @@
     
     self.edgesForExtendedLayout = UIRectEdgeNone;
     
+    UILabel *topTipsLabel = [UILabel new];
+    topTipsLabel.textAlignment = NSTextAlignmentCenter;
+    topTipsLabel.numberOfLines = 3;
+    topTipsLabel.text = @"下边灰色视图是一个按钮A，\n按钮A的有效点击区域(热区)\n改为了黄色区域";
+    [self.view addSubview:topTipsLabel];
+    topTipsLabel.frame = CGRectMake(.0, 20.0, CGRectGetWidth(self.view.frame), 70.0);
+    topTipsLabel.backgroundColor = [UIColor lightGrayColor];
+    
     // 减小按钮的有效点击区域
     QiChangeClickEffectiveAreaButton *topGrayReduceClickAreaContainerButton = [QiChangeClickEffectiveAreaButton new];
     [self.view addSubview:topGrayReduceClickAreaContainerButton];
-    topGrayReduceClickAreaContainerButton.frame = CGRectMake(0, 0, 100.0, 100.0);
+    topGrayReduceClickAreaContainerButton.frame = CGRectMake(CGRectGetMidX(self.view.frame) - 50.0, 100.0, 100.0, 100.0);
     topGrayReduceClickAreaContainerButton.backgroundColor = [UIColor darkGrayColor];
     topGrayReduceClickAreaContainerButton.qi_clickAreaReduceValue = 40.0;
     topGrayReduceClickAreaContainerButton.tag = 1;
@@ -44,14 +52,22 @@
     QiTouchPenetrateView *yellowTopRealClickAreaView = [QiTouchPenetrateView new];
     [topGrayReduceClickAreaContainerButton addSubview:yellowTopRealClickAreaView];
     yellowTopRealClickAreaView.frame = CGRectMake(0, 0, 20.0, 20.0);
-    yellowTopRealClickAreaView.center = topGrayReduceClickAreaContainerButton.center;
+    yellowTopRealClickAreaView.center = CGPointMake(topGrayReduceClickAreaContainerButton.bounds.size.width / 2, topGrayReduceClickAreaContainerButton.bounds.size.height / 2);
     yellowTopRealClickAreaView.backgroundColor = [UIColor yellowColor];
+    
+   
+    UILabel *bottomTipsLabel = [UILabel new];
+    bottomTipsLabel.textAlignment = NSTextAlignmentCenter;
+    bottomTipsLabel.numberOfLines = 3;
+    bottomTipsLabel.text = @"下边灰色视图是一个containerLabel\n 最中间的红色视图是一个按钮B\n 把按钮B的有效点击区域(热区)改为了蓝色区域";
+    [self.view addSubview:bottomTipsLabel];
+    bottomTipsLabel.frame = CGRectMake(.0, 220.0, CGRectGetWidth(self.view.frame), 70.0);
+    bottomTipsLabel.backgroundColor = [UIColor lightGrayColor];
     
     // 增大按钮的点击区域
     _bottomGrayContainerLabel = [UILabel new];
     [self.view addSubview:_bottomGrayContainerLabel];
-    _bottomGrayContainerLabel.frame = CGRectMake(0, 0, 200.0, 200.0);
-    _bottomGrayContainerLabel.center = self.view.center;
+    _bottomGrayContainerLabel.frame = CGRectMake(CGRectGetMidX(self.view.frame) - 100.0, 300.0, 200.0, 200.0);
     _bottomGrayContainerLabel.backgroundColor = [UIColor darkGrayColor];
     _bottomGrayContainerLabel.userInteractionEnabled = YES;
     
