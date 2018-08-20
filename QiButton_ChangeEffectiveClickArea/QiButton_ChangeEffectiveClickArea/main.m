@@ -2,7 +2,7 @@
 //  main.m
 //  QiButton_ChangeEffectiveClickArea
 //
-//  Created by wangyongwang on 2018/8/11.
+//  Created by qishare on 2018/8/11.
 //  Copyright © 2018年 qishare. All rights reserved.
 //
 
